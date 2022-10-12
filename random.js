@@ -8,12 +8,12 @@ document.getElementById('check-box3').checked = true
 
 genBtn.addEventListener("click", function () {
     document.getElementById("output").textContent = "Generating...";
-    let finalCanteen = ""
     let canteenArray = []
+    let finalCanteen = []
     const checkBox1 = document.getElementById('check-box1').checked
     const checkBox2 = document.getElementById('check-box2').checked
     const checkBox3 = document.getElementById('check-box3').checked
-    for (let i = 1; i < 4; i++){
+    for (let i = 1; i < 4; i++) {
         let checkBox = "checkBox"
         checkBox = eval(checkBox + i)
         console.log(checkBox)
@@ -34,32 +34,25 @@ genBtn.addEventListener("click", function () {
             .then(randomNum => {
                 console.log("The random number is " + randomNum)
                 console.log(canteenArray.length)
-                for (let i= 0; i < 4; i++) {
-                    if (canteenArray[i] == randomNum) {
-                        if (randomNum == 1) {
-                            finalCanteen = "อปร"
-                        } else if (randomNum == 2) {
-                            finalCanteen = "สธ"
-                        } else if (randomNum == 3) {
-                            finalCanteen = "ภูมิสิริ"
-                        } else {
-                            console.log("Final canteen is broken")
-                        }
-    
-                        document.getElementById("output").textContent = finalCanteen
-                    } else {
-                        // console.log("Canteen " + canteenArray[i] + " is not chosen")
-                    }
+                if (canteenArray.includes(1)) {
+                    finalCanteen.push("อปร")
+                } if (canteenArray.includes(2)) {
+                    finalCanteen.push("สธ")
+                } if (canteenArray.includes(3)) {
+                    finalCanteen.push("ภูมิสิริ")
+                } else {
+                    console.log("Final canteen is borken")
                 }
-                
+                console.log(finalCanteen)
+                document.getElementById("output").textContent = `${finalCanteen[randomNum - 1]}`
             })
-            .catch(err => console.log(err))    
+            .catch(err => console.log(err))
     } else {
         document.getElementById("output").textContent = "เลือกให้มันมากกว่า 1 ที่ดิ"
     }
 
 
-// for testing
-//    const numMin = Number(document.getElementById("num-min").value)
-//    const numMax = Number(document.getElementById("num-max").value)
+    // for testing
+    //    const numMin = Number(document.getElementById("num-min").value)
+    //    const numMax = Number(document.getElementById("num-max").value)
 })
