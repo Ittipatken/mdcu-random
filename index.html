@@ -9,14 +9,82 @@
 </head>
 
 <body>
-    <h1>MDCU True Randomness Generator</h1>
-    <h3>Powered by Random.org</h3>
-    <script type="module" src="random.js"></script>
-    <input type="checkbox" id="check-box1"> อปร
-    <input type="checkbox" id="check-box2"> สธ
-    <input type="checkbox" id="check-box3"> ภูมิสิริ<br>
-    <button id="gen-btn">Generate</button><br>
-    Output = <span id="output"></span>
+    <div class="p-1 container">
+        <h1>MDCU True Randomness Generator</h1>
+        <script type="module" src="random.js"></script>
+        <ul class="p-1 list-group">
+            <div class="row checkbox-row justify-content-center">
+                <div class="col-6 col-md-4">
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="check-box1">
+                            <label class="form-check-label" for="check-box1">
+                                อปร
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="check-box2">
+                            <label class="form-check-label" for="check-box2">
+                                สธ
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="check-box3">
+                            <label class="form-check-label" for="check-box3">
+                                ภูมิสิริ
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="check-box4">
+                            <label class="form-check-label" for="check-box4">
+                                BWELL
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="check-box5">
+                            <label class="form-check-label" for="check-box5">
+                                สก
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="check-box6">
+                            <label class="form-check-label" for="check-box6">
+                                ใต้หอปรีดาลัย
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="check-box7">
+                            <label class="form-check-label" for="check-box7">
+                                Silom Complex
+                            </label>
+                        </div>
+                    </li>
+                </div>
+            </div>
+        </ul>
+        <div class="m-1 d-grid gap-2 col-6 col-md-4 mx-auto">
+            <button class="btn btn-primary" type="button" id="gen-btn">Random!</button>
+        </div>
+        <div class="row justify-content-center">
+            <div class="m-1 alert alert-success col-6 col-md-4 justify-content-center" role="alert" id="output">
+                Result
+            </div>
+        </div>
+           <h6>Powered by Random.org</h6>
+    </div>
+
 </body>
 
 </html>
