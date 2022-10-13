@@ -1,2 +1,2 @@
 # mdcu-random
-A website for choosing cafeteria around MDCU.
+A website for choosing cafeteria around MDCU
