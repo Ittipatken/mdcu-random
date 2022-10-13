@@ -64,7 +64,7 @@ genBtn.addEventListener("click", function () {
             })
             .catch(err => console.log(err))
     } else {
-        document.getElementById("output").textContent = "เลือกให้มันมากกว่า 1 ที่ดิ"
+        document.getElementById("output").textContent = "เลือกมากกว่า 1 ที่"
     }
 
 
