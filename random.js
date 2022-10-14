@@ -1,12 +1,12 @@
 // import fetch from 'node-fetch';
 
 const genBtn = document.getElementById("gen-btn")
-
 document.getElementById('check-box1').checked = true
 document.getElementById('check-box2').checked = true
 document.getElementById('check-box3').checked = true
 
 genBtn.addEventListener("click", function () {
+    genBtn.setAttribute("disabled", true);
     document.getElementById("output").innerHTML = `
     <div class="spinner-border text-success" role="status">
         <span class="visually-hidden">Loading...</span>
@@ -14,16 +14,16 @@ genBtn.addEventListener("click", function () {
     `;
     let canteenArray = []
     let finalCanteen = []
-    const checkBox1 = document.getElementById('check-box1').checked
-    const checkBox2 = document.getElementById('check-box2').checked
-    const checkBox3 = document.getElementById('check-box3').checked
-    const checkBox4 = document.getElementById('check-box4').checked
-    const checkBox5 = document.getElementById('check-box5').checked
-    const checkBox6 = document.getElementById('check-box6').checked
-    const checkBox7 = document.getElementById('check-box7').checked
+    // const checkBox1 = document.getElementById('check-box1').checked
+    // const checkBox2 = document.getElementById('check-box2').checked
+    // const checkBox3 = document.getElementById('check-box3').checked
+    // const checkBox4 = document.getElementById('check-box4').checked
+    // const checkBox5 = document.getElementById('check-box5').checked
+    // const checkBox6 = document.getElementById('check-box6').checked
+    // const checkBox7 = document.getElementById('check-box7').checked
     for (let i = 1; i < 8; i++) {
         let checkBox = "checkBox"
-        checkBox = eval(checkBox + i)
+        checkBox = eval(document.getElementById(`check-box${i}`).checked)
         console.log(checkBox)
         if (checkBox === true) {
             canteenArray.push(i)
@@ -57,16 +57,18 @@ genBtn.addEventListener("click", function () {
                 } if (canteenArray.includes(7)) {
                     finalCanteen.push("Silom Complex")
                 } else {
-                    console.log("Final canteen is broken")
+                    // console.log("Final canteen is broken")
                 }
                 console.log(finalCanteen)
                 document.getElementById("output").textContent = `${finalCanteen[randomNum - 1]}`
+                genBtn.removeAttribute("disabled", true);
             })
             .catch(err => console.log(err))
     } else {
         document.getElementById("output").textContent = "เลือกมากกว่า 1 ที่"
+        genBtn.removeAttribute("disabled", true);
     }
-
+    
 
     // for testing
     //    const numMin = Number(document.getElementById("num-min").value)
