@@ -29,7 +29,7 @@ genBtn.addEventListener("click", function () {
             canteenArray.push(i)
         }
         else {
-            // console.log(i + " is not chosen")
+            console.log(i + " is not chosen")
         }
     }
     console.log(canteenArray)
@@ -57,7 +57,7 @@ genBtn.addEventListener("click", function () {
                 } if (canteenArray.includes(7)) {
                     finalCanteen.push("Silom Complex")
                 } else {
-                    console.log("Final canteen is borken")
+                    console.log("Final canteen is broken")
                 }
                 console.log(finalCanteen)
                 document.getElementById("output").textContent = `${finalCanteen[randomNum - 1]}`
