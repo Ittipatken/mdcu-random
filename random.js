@@ -21,7 +21,7 @@ genBtn.addEventListener("click", function () {
     // const checkBox5 = document.getElementById('check-box5').checked
     // const checkBox6 = document.getElementById('check-box6').checked
     // const checkBox7 = document.getElementById('check-box7').checked
-    for (let i = 1; i < 8; i++) {
+    for (let i = 1; i < 10; i++) {
         let checkBox = "checkBox"
         checkBox = eval(document.getElementById(`check-box${i}`).checked)
         console.log(checkBox)
@@ -56,6 +56,10 @@ genBtn.addEventListener("click", function () {
                     finalCanteen.push("ใต้หอปรีดาลัย")
                 } if (canteenArray.includes(7)) {
                     finalCanteen.push("Silom Complex")
+                } if (canteenArray.includes(8)) {
+                    finalCanteen.push("Silom Edge")
+                } if (canteenArray.includes(9)) {
+                    finalCanteen.push("รัฐศาสตร์")
                 } else {
                     // console.log("Final canteen is broken")
                 }
