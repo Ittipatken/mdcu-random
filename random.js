@@ -8,7 +8,7 @@ document.getElementById('check-box3').checked = true
 genBtn.addEventListener("click", function () {
     genBtn.setAttribute("disabled", true);
     document.getElementById("output").innerHTML = `
-    <div class="spinner-border text-success" role="status">
+    <div class="spinner-grow text-success" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
     `;
@@ -24,15 +24,15 @@ genBtn.addEventListener("click", function () {
     for (let i = 1; i < 10; i++) {
         let checkBox = "checkBox"
         checkBox = eval(document.getElementById(`check-box${i}`).checked)
-        console.log(checkBox)
+        // console.log(checkBox)
         if (checkBox === true) {
             canteenArray.push(i)
         }
         else {
-            console.log(i + " is not chosen")
+            // console.log(i + " is not chosen")
         }
     }
-    console.log(canteenArray)
+    // console.log(canteenArray)
     if (canteenArray.length > 1) {
         const URL = `https://www.random.org/integers/?num=1&min=1&max=${canteenArray.length}&col=1&base=10&format=plain&rnd=new`
         // console.log(numMin)
@@ -40,8 +40,8 @@ genBtn.addEventListener("click", function () {
         fetch(URL)
             .then(res => res.text())
             .then(randomNum => {
-                console.log("The random number is " + randomNum)
-                console.log(canteenArray.length)
+                // console.log("The random number is " + randomNum)
+                // console.log(canteenArray.length)
                 if (canteenArray.includes(1)) {
                     finalCanteen.push("อปร")
                 } if (canteenArray.includes(2)) {
@@ -63,7 +63,7 @@ genBtn.addEventListener("click", function () {
                 } else {
                     // console.log("Final canteen is broken")
                 }
-                console.log(finalCanteen)
+                // console.log(finalCanteen)
                 document.getElementById("output").textContent = `${finalCanteen[randomNum - 1]}`
                 genBtn.removeAttribute("disabled", true);
             })
@@ -72,7 +72,7 @@ genBtn.addEventListener("click", function () {
         document.getElementById("output").textContent = "เลือกมากกว่า 1 ที่"
         genBtn.removeAttribute("disabled", true);
     }
-    
+
 
     // for testing
     //    const numMin = Number(document.getElementById("num-min").value)
