@@ -1,19 +1,21 @@
 // import fetch from 'node-fetch';
 
-const genBtn = document.getElementById("gen-btn")
-document.getElementById('check-box1').checked = true
-document.getElementById('check-box2').checked = true
-document.getElementById('check-box3').checked = true
+const genBtn = document.getElementById("gen-btn");
+document.getElementById('check-box1').checked = true;
+document.getElementById('check-box2').checked = true;
+document.getElementById('check-box3').checked = true;
+document.getElementById("num-1").defaultValue = 1;
+document.getElementById("num-2").defaultValue = 2;
 
 genBtn.addEventListener("click", function () {
     genBtn.setAttribute("disabled", true);
     document.getElementById("output").innerHTML = `
-    <div class="spinner-grow text-success" role="status">
+    <div class="spinner-border text-success" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
     `;
-    let canteenArray = []
-    let finalCanteen = []
+    let canteenArray = [];
+    let finalCanteen = [];
     // const checkBox1 = document.getElementById('check-box1').checked
     // const checkBox2 = document.getElementById('check-box2').checked
     // const checkBox3 = document.getElementById('check-box3').checked
@@ -71,10 +73,38 @@ genBtn.addEventListener("click", function () {
     } else {
         document.getElementById("output").textContent = "เลือกมากกว่า 1 ที่"
         genBtn.removeAttribute("disabled", true);
-    }
+    };
 
 
     // for testing
     //    const numMin = Number(document.getElementById("num-min").value)
     //    const numMax = Number(document.getElementById("num-max").value)
+})
+
+const numBtn = document.getElementById("num-btn")
+
+numBtn.addEventListener("click", function () {
+    numBtn.setAttribute("disabled", true);
+    document.getElementById("output-2").innerHTML = `
+    <div class="spinner-border text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    `;
+    let num1 = document.getElementById("num-1").value;
+    let num2 = document.getElementById("num-2").value;
+    if (num2 > num1) {
+        const URL = `https://www.random.org/integers/?num=1&min=${num1}&max=${num2}&col=1&base=10&format=plain&rnd=new`;
+        fetch(URL)
+            .then(res => res.text())
+            .then(randomNum => {
+                document.getElementById("output-2").textContent = randomNum;
+                numBtn.removeAttribute("disabled", true);
+            })
+            .catch(err => console.log(err));
+    } else {
+        document.getElementById("output-2").textContent = "Invalid Value";
+        numBtn.removeAttribute("disabled", true);
+        // console.log(typeof num1);
+        // console.log(typeof num2);
+    };
 })
