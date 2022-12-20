@@ -1,2 +1,2 @@
 # mdcu-random
-A website for deciding which cafeteria to go to around MDCU
+A website built with Bootstrap for deciding which cafeteria to go to around MDCU
