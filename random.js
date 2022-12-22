@@ -110,8 +110,9 @@ numBtn.addEventListener("click", function () {
     } else {
         document.getElementById("output-2").textContent = "Invalid Value";
         numBtn.removeAttribute("disabled", true);
-        console.log(typeof num1);
-        console.log(typeof num2);
-        console.log(num2 > num1);
+        document.getElementById("time-verify").remove();
+        // console.log(typeof num1);
+        // console.log(typeof num2);
+        // console.log(num2 > num1);
     };
 })
