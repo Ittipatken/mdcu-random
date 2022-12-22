@@ -82,6 +82,7 @@ genBtn.addEventListener("click", function () {
 })
 
 const numBtn = document.getElementById("num-btn")
+const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 numBtn.addEventListener("click", function () {
     numBtn.setAttribute("disabled", true);
@@ -90,9 +91,14 @@ numBtn.addEventListener("click", function () {
         <span class="visually-hidden">Loading...</span>
     </div>
     `;
-    let num1 = document.getElementById("num-1").value;
-    let num2 = document.getElementById("num-2").value;
+    let num1 = Number(document.getElementById("num-1").value);
+    let num2 = Number(document.getElementById("num-2").value);
     if (num2 > num1) {
+        fetch("https://worldtimeapi.org/api/timezone/" + tz)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("time-verify").textContent = "✅ " + tz + " " + data.datetime;
+        });
         const URL = `https://www.random.org/integers/?num=1&min=${num1}&max=${num2}&col=1&base=10&format=plain&rnd=new`;
         fetch(URL)
             .then(res => res.text())
@@ -104,7 +110,8 @@ numBtn.addEventListener("click", function () {
     } else {
         document.getElementById("output-2").textContent = "Invalid Value";
         numBtn.removeAttribute("disabled", true);
-        // console.log(typeof num1);
-        // console.log(typeof num2);
+        console.log(typeof num1);
+        console.log(typeof num2);
+        console.log(num2 > num1);
     };
 })
